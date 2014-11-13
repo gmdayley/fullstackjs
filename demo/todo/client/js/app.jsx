@@ -217,4 +217,4 @@ var app = app || {};
     <TodoApp todos={app.todos} />,
     document.getElementById('todoapp')
   );
-})();
+})(io);

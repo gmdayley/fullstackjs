@@ -10,6 +10,8 @@ var todoService = new TodoService();
 server.listen(3000);
 
 io.on('connection', function (socket) {
+  socket.emit('hello');
+
   todoService.on('doc-updated', function(doc) {
     socket.emit('updated', doc);
   });
@@ -29,20 +31,17 @@ app.get('/todo', function (req, res) {
     })
 });
 
-// accept POST request on the homepage
 app.post('/todo/:id', function (req, res) {
   res.send('Got a POST request');
 });
 
-// accept PUT request at /user
 app.put('/todo/:id', function (req, res) {
   var doc = req.body;
   console.log(doc);
-  todoService.save(doc);
+  //todoService.save(doc);
   res.send('Got a PUT request at /user');
 });
 
-// accept DELETE request at /user
 app.delete('/todo/:id', function (req, res) {
   res.send('Got a DELETE request at /user');
 });

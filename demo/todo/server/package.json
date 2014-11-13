@@ -1,0 +1,21 @@
+{
+  "name": "fs-todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Gabriel Dayley",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^2.3.11",
+    "body-parser": "^1.9.2",
+    "config": "^1.7.0",
+    "express": "^4.10.2",
+    "lodash": "^2.4.1",
+    "nano": "^6.0.1",
+    "socket.io": "^1.2.0"
+  }
+}

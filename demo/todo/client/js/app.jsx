@@ -80,9 +80,10 @@ var app = app || {};
       // If saving were expensive we'd listen for mutation events on Backbone and
       // do this manually. however, since saving isn't expensive this is an
       // elegant way to keep it reactively up-to-date.
-      this.props.todos.forEach(function (todo) {
-        todo.save();
-      });
+
+      //this.props.todos.forEach(function (todo) {
+      //  todo.save();
+      //});
     },
 
     handleNewTodoKeyDown: function (event) {

@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
 
 var TodoService = require('./service/todo-service');
 var todoService = new TodoService();
@@ -29,19 +29,35 @@ app.get('/todo', function (req, res) {
     .then(function (docs) {
       res.json(docs);
     })
+    .catch(function(err) {
+      res.status(500).send(err);
+    })
 });
 
-app.post('/todo/:id', function (req, res) {
-  res.send('Got a POST request');
+app.post('/todo', function (req, res) {
+  var doc = req.body;
+  console.log('POST', doc);
+  todoService.save(doc)
+    .then(function(saved) {
+      res.json(saved)
+    })
+    .catch(function(err) {
+      res.status(500).send(err);
+    });
 });
 
 app.put('/todo/:id', function (req, res) {
   var doc = req.body;
-  console.log(doc);
-  //todoService.save(doc);
-  res.send('Got a PUT request at /user');
+  console.log('PUT', doc);
+  todoService.save(doc)
+    .then(function(saved) {
+      res.json(saved)
+    })
+    .catch(function(err) {
+      res.status(500).send(err);
+    });
 });
 
 app.delete('/todo/:id', function (req, res) {
-  res.send('Got a DELETE request at /user');
+  res.send('Got a DELETE request');
 });

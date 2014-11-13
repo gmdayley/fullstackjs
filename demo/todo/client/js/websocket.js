@@ -6,7 +6,6 @@
   });
 
   socket.on('deleted', function (docId) {
-    console.log('delete', docId);
     var todo = app.todos.get(docId);
     if (todo) {
       app.todos.remove(todo);

@@ -14,13 +14,11 @@ function TodoService() {
   //Setup follow feed
   var feed = db.follow({since: 'now'});
   feed.on('change', function (doc) {
-    console.log('change: ', doc);
     if (doc.deleted) {
       _this.emit('doc-deleted', doc.id);
     } else {
       _this.findById(doc.id)
         .then(function (doc) {
-          console.log(doc);
           _this.emit('doc-updated', doc);
         });
     }

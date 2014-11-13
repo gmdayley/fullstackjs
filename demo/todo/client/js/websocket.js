@@ -17,7 +17,7 @@
     console.log("todo", todo);
     if (todo) {
       //update
-      // todo.set(doc);
+      todo.set(doc);
     } else {
       //create
       app.todos.add({

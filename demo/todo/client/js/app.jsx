@@ -93,12 +93,11 @@ var app = app || {};
 
       var val = this.refs.newField.getDOMNode().value.trim();
       if (val) {
-        console.log('new todo', val);
         this.props.todos.create({
           title: val,
           completed: false,
           order: this.props.todos.nextOrder()
-        });
+        }, {wait: true});
         this.refs.newField.getDOMNode().value = '';
       }
 
@@ -118,7 +117,7 @@ var app = app || {};
     },
 
     save: function (todo, text) {
-      todo.save({title: text});
+      todo.save({title: text}, {wait: true});
       this.setState({editing: null});
     },
 
@@ -149,9 +148,10 @@ var app = app || {};
       }, this);
 
       var todoItems = shownTodos.map(function (todo) {
+        //You must do both, beacuse when first created the model doens't have _id set for some reason
         return (
           <TodoItem
-            key={todo.get('id')}
+            key={todo.get("_id") || todo.get("id")}
             todo={todo}
             onToggle={todo.toggle.bind(todo)}
             onDestroy={todo.destroy.bind(todo)}

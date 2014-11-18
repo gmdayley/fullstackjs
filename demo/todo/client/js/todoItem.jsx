@@ -16,10 +16,14 @@ var app = app || {};
 
   app.TodoItem = React.createClass({
     getInitialState: function () {
-      return {editText: this.props.todo.get('title')};
+      return {editText: this.props.todo.get('title'), submitting: false};
     },
 
     handleSubmit: function () {
+      if (this.state.submitting) return;
+
+      this.state.submitting = !this.state.submitting;
+
       var val = this.state.editText.trim();
       if (val) {
         this.props.onSave(val);

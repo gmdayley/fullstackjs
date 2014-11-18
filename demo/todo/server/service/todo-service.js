@@ -6,7 +6,6 @@ var db = Promise.promisifyAll(nano.db.use('todos'));
 var _ = require('lodash');
 
 function TodoService() {
-  console.log('new TodoService');
   EventEmitter.call(this);
 
   var _this = this;
@@ -64,6 +63,15 @@ TodoService.prototype.save = function(doc) {
       }
     });
   })
+};
+
+TodoService.prototype.delete = function(docId) {
+  var _this = this;
+  return this.findById(docId)
+    .then(function(doc) {
+      doc._deleted = true;
+      return _this.save(doc);
+    });
 };
 
 module.exports = TodoService;

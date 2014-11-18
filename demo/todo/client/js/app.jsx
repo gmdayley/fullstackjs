@@ -121,6 +121,10 @@ var app = app || {};
       this.setState({editing: null});
     },
 
+    remove: function(todo) {
+      todo.destroy();
+    },
+
     cancel: function () {
       this.setState({editing: null});
     },
@@ -154,7 +158,8 @@ var app = app || {};
             key={todo.get("_id") || todo.get("id")}
             todo={todo}
             onToggle={todo.toggle.bind(todo)}
-            onDestroy={todo.destroy.bind(todo)}
+            //onDestroy={todo.destroy.bind(todo)}
+            onDestroy={this.remove.bind(this, todo)}
             onEdit={this.edit.bind(this, todo)}
             editing={this.state.editing === todo.get('id')}
             onSave={this.save.bind(this, todo)}

@@ -24,6 +24,7 @@ io.on('connection', function (socket) {
 app.use(express.static('../client'));
 app.use(bodyParser.json());
 
+// GET
 app.get('/todo', function (req, res) {
   todoService.list()
     .then(function (docs) {
@@ -34,9 +35,9 @@ app.get('/todo', function (req, res) {
     })
 });
 
+// CREATE
 app.post('/todo', function (req, res) {
   var doc = req.body;
-  console.log('POST', doc);
   todoService.save(doc)
     .then(function(saved) {
       res.json(saved)
@@ -46,9 +47,9 @@ app.post('/todo', function (req, res) {
     });
 });
 
+// UPDATE
 app.put('/todo/:id', function (req, res) {
   var doc = req.body;
-  console.log('PUT', doc);
   todoService.save(doc)
     .then(function(saved) {
       res.json(saved)
@@ -58,6 +59,13 @@ app.put('/todo/:id', function (req, res) {
     });
 });
 
+// DELETE
 app.delete('/todo/:id', function (req, res) {
-  res.send('Got a DELETE request');
+  todoService.delete(req.params.id)
+    .then(function() {
+      res.status(204).send();
+    })
+    .catch(function(err) {
+      res.status(500).send(err);
+    })
 });

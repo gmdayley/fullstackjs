@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>This</title>
+        <title>Full Stack JavaScript</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="author" content="Thomas A. Valletta" />
         <link href="css/impress.css" rel="stylesheet" />
@@ -29,6 +29,20 @@
             font-style: normal;
 
           }
+
+					.step.nofade {
+						opacity: 1;
+					}
+
+					.step.invis {
+						opacity: 0;
+					}
+
+					.step.invis.active {
+						opacity: 1;
+					}
+
+
 
           h1 {font-size: 128px; line-height: 164px;}
           h2 {font-size: 96px; line-height: 96px; color: #333;}
@@ -83,16 +97,20 @@
           }
 
           .small {
-            font-size: .9em;
+            font-size: 36px;
+						color: #777;
           }
           .x-small {
-            font-size: .8em;
+            font-size: 30px;
+						color: #888;
           }
           .xx-small {
-            font-size: .7em;
+            font-size: 24px;
+						color: #999;
           }
           .xxx-small {
-            font-size: .6em;
+            font-size: 18px;
+						color: #aaa;
           }
         </style>
     </head>
@@ -104,37 +122,81 @@
       <div id="title" class="step" data-x="0" data-y="0">
           <h2 style="text-align: center">Full Stack</h2>
           <h1 style="text-align: center; font-size: 240px; line-height: 240px">JavaScript</h1>
-          <h4 style="text-align: center">Gabriel Dayley &amp;
-            Thomas  A. Valletta</h4>
+          <h4 style="text-align: center">Gabriel Dayley &amp; Thomas  A. Valletta</h4>
       </div>
 
       <div id="timeline" class="step" data-x="0" data-y="1000"></div>
 
-			<div id="today" class="step" data-x="385" data-y="880" data-rotate-z="-90" data-scale=".25">
+			<div id="today" class="step nofade skip" data-x="385" data-y="880" data-rotate-z="-90" data-scale=".25">
 				Full Stack JavaScript Today
 			</div>
 
-			<div id="HTML5_Start" class="step" data-x="175" data-y="880" data-rotate-z="-90" data-scale=".25">
+			<div id="today-detail" class="step invis small" data-x="425" data-y="880" data-rotate-z="-90" data-scale=".25">
+				Full Stack JavaScript is more than the uprising of underpaid markup monkeys.  It has become increasingly popular because important technologies on three layers of the application stack matured at precisely the right time.
+			</div>
+
+			<!-- Client Side Developments -->
+			<div id="html5-start" class="step" data-x="175" data-y="880" data-rotate-z="-90" data-scale=".25">
 				2004 - WHATWG - Starts HTML5
 			</div>
 
-			<div id="Ajax" class="step" data-x="195" data-y="880" data-rotate-z="-90" data-scale=".25">
+			<div id="ajax" class="step" data-x="195" data-y="880" data-rotate-z="-90" data-scale=".25">
 				2005 - J.J. Garrett - Ajax
 			</div>
 
-			<div id="Ajax" class="step" data-x="215" data-y="880" data-rotate-z="-90" data-scale=".25">
+			<div id="firebug" class="step" data-x="215" data-y="880" data-rotate-z="-90" data-scale=".25">
 				2006 - Joe Hewitt - Firebug 1.0
 			</div>
 
-			<div id="HTML5_Draft" class="step" data-x="255" data-y="880" data-rotate-z="-90" data-scale=".25">
+			<div id="html5-draft" class="step" data-x="255" data-y="880" data-rotate-z="-90" data-scale=".25">
 				2008 - HTML5 First Draft
 			</div>
 
-			<div id="HTML5_Release" class="step" data-x="385" data-y="880" data-rotate-z="-90" data-scale=".25">
+			<div id="html5-release" class="step invis" data-hide="today" data-x="385" data-y="880" data-rotate-z="-90" data-scale=".25">
 				Oct 28, 2014 - HTML5 Initial Release
 			</div>
 
+			<div id="client-summary" class="step invis small" data-show="" data-x="425" data-y="880" data-rotate-z="-90" data-scale=".25">
+				<ul>
+					<li>Frameworks</li>
+					<li>Web APIs (HTML5)</li>
+					<li>JavaScript Performance</li>
+					<li>Browser Tooling</li>
+				</ul>
+			</div>
 
+			<!-- Middleware Developments -->
+			<div id="apache" class="step" data-x="-5" data-y="880" data-rotate-z="-90" data-scale=".25">
+				1995 - Apache HTTP Server Release
+			</div>
+
+			<div id="apache-big" class="step" data-x="15" data-y="880" data-rotate-z="-90" data-scale=".25">
+				1996 - Apache Becomes No. 1
+			</div>
+
+			<div id="c10k" class="step" data-x="75" data-y="880" data-rotate-z="-90" data-scale=".25">
+				1999 - Dan Kegel - C10K Paper
+			</div>
+
+			<div id="nginx" class="step" data-x="135" data-y="880" data-rotate-z="-90" data-scale=".25">
+				2002 - Igor Sysoev - Starts Nginx
+			</div>
+
+			<div id="nginx-followers" class="step invis small" data-x="155" data-y="1100" data-rotate-z="-90" data-scale=".15" style="text-align: right">
+				Marginally Successful
+				<ul>
+					<li>Netty (Java)</li>
+					<li>Twisted (Python)</li>
+					<li>Event Machine (Ruby)</li>
+				</ul>
+				...because they block.
+			</div>
+
+			<div id="nodejs" class="step" data-x="275" data-y="880" data-rotate-z="-90" data-scale=".25">
+				2009 - Ryan Dahl - Node.js
+			</div>
+
+			<!-- Database Developments -->
 			<div id="beginning" class="step" data-x="-405" data-y="880" data-rotate-z="-90" data-scale=".25">
 				1975 - Beginning of History
 			</div>
@@ -361,7 +423,20 @@
     var applyCode = document.getElementById("apply-code");
     var evalCode = document.getElementById("eval-code");
 
-      el.addEventListener("impress:stepenter", function (event) {
+			var hidden = [];
+
+      el.addEventListener("impress:stepenter", function(event) {
+
+				// --- data-hide ---
+				if (event.target.hasAttribute('data-hide')) {
+					var hideList = event.target.getAttribute('data-hide').split(' ');
+					for (var i = 0; i < hideList.length; ++i) {
+						var $el = document.getElementById(hideList[i]);
+						hidden.push({ el: $el, opacity: $el.style.opacity });
+						$el.style.opacity = 0;
+					}
+				}
+
         switch (event.target.id) {
           case "title":
             console.log("title");
@@ -439,28 +514,34 @@
         }
         }, false);
 
-      el.addEventListener("impress:stepleave", function (event) {
-      grid.classList.remove("active");
-      gridGlobal.className = "obscure";
-      gridMethod.className = "obscure";
-      gridBaseless.className = "obscure";
-      gridCall.className = "obscure";
-      gridApply.className = "obscure";
-      gridConstructor.className = "obscure";
-      gridEval.className = "obscure";
+      el.addEventListener("impress:stepleave", function(event) {
+				if (hidden.length) {
+					for (var i = 0; i < hidden.length; ++i) {
+						hidden[i].el.style.opacity = hidden[i].opacity;
+					}
+				}
 
-      globalCode.classList.add("invisible");
-      methodCode.classList.add("invisible");
-      baselessCode.classList.add("invisible");
-      baselessCode2.classList.add("invisible");
-      baselessCode3.classList.add("invisible");
-      baselessCode4.classList.add("invisible");
-      baselessCode5.classList.add("invisible");
-      callCode.classList.add("invisible");
-      applyCode.classList.add("invisible");
-      evalCode.classList.add("invisible");
+				grid.classList.remove("active");
+				gridGlobal.className = "obscure";
+				gridMethod.className = "obscure";
+				gridBaseless.className = "obscure";
+				gridCall.className = "obscure";
+				gridApply.className = "obscure";
+				gridConstructor.className = "obscure";
+				gridEval.className = "obscure";
 
-        }, false);
+				globalCode.classList.add("invisible");
+				methodCode.classList.add("invisible");
+				baselessCode.classList.add("invisible");
+				baselessCode2.classList.add("invisible");
+				baselessCode3.classList.add("invisible");
+				baselessCode4.classList.add("invisible");
+				baselessCode5.classList.add("invisible");
+				callCode.classList.add("invisible");
+				applyCode.classList.add("invisible");
+				evalCode.classList.add("invisible");
+
+      }, false);
 
     </script>
     </body>

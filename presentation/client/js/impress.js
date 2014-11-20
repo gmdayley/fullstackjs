@@ -327,7 +327,16 @@
                 transformStyle: "preserve-3d"
             });
         };
-        
+
+        var filterSkips = function(steps) {
+            var newSteps = [];
+            steps.forEach(function( el ) {
+                if (!el.className.match(/\bskip\b/))
+                    newSteps.push(el);
+            });
+            return newSteps;
+        };
+
         // `init` API function that initializes (and runs) the presentation.
         var init = function () {
             if (initialized) { return; }
@@ -389,7 +398,10 @@
             // get and init steps
             steps = $$(".step", root);
             steps.forEach( initStep );
-            
+
+            // remove steps that should be skipped
+            steps = filterSkips(steps);
+
             // set a default initial state of the canvas
             currentState = {
                 translate: { x: 0, y: 0, z: 0 },

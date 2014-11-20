@@ -1,10 +1,11 @@
 <!doctype html>
 <html>
     <head>
-        <title>This</title>
+        <title>Full Stack JavaScript</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="author" content="Thomas A. Valletta" />
         <link href="css/impress.css" rel="stylesheet" />
+				<link href="css/railscasts.css" rel="stylesheet" />
         <style>
           @font-face {
             font-family: 'QlassikMediumRegular';
@@ -30,6 +31,26 @@
 
           }
 
+
+					code {
+						font-family: monospace,monospace;
+						font-size: .55em;
+					}
+
+					.step.nofade {
+						opacity: 1;
+					}
+
+					.step.invis {
+						opacity: 0;
+					}
+
+					.step.invis.active {
+						opacity: 1;
+					}
+
+
+
           h1 {font-size: 128px; line-height: 164px;}
           h2 {font-size: 96px; line-height: 96px; color: #333;}
           h3 {font-size: 64px; line-height: 64px; color: #666;}
@@ -37,31 +58,11 @@
           h5 {font-size: 32px; line-height: 32px;}
           h6 {font-size: 24px; line-height: 24px;}
 
-          code, .code, .code-black {
-            font-family: "Courier New", Monaco, "Lucida Console", monospace;
-            font-weight: bold;
-            font-size: .9em;
-          }
-          code, .code {
-            color: green;
-          }
-
 
 					svg {
-						stroke: gray;
-						stroke-width: 3;
-					}
-
-					rect {
-						fill: whitesmoke;
-					}
-
-					circle {
-						fill: white;
-					}
-
-					line {
 						stroke: black;
+						stroke-width: 12;
+						fill: gray;
 					}
 
 
@@ -70,10 +71,10 @@
             width: 100%;
           }
           table tr {
-            border-bottom: 1px solid #999;
+            border-bottom: 1px solid #FFAD4E;
           }
           table th {
-            background-color: #bbb;
+            background-color: #FF9D2C;
             font-weight: bold;
             padding: 7px;
           }
@@ -82,18 +83,31 @@
             text-align: center;
           }
 
+					hr {
+						border-color: #FFAD4E;
+					}
+
           .small {
-            font-size: .9em;
+            font-size: 36px;
+						color: #777;
           }
           .x-small {
-            font-size: .8em;
+            font-size: 30px;
+						color: #888;
           }
           .xx-small {
-            font-size: .7em;
+            font-size: 24px;
+						color: #999;
           }
           .xxx-small {
-            font-size: .6em;
+            font-size: 18px;
+						color: #aaa;
           }
+
+					.timeline-l {
+						padding-right: 100px;
+						text-align: right;
+					}
         </style>
     </head>
     <body>
@@ -104,72 +118,439 @@
       <div id="title" class="step" data-x="0" data-y="0">
           <h2 style="text-align: center">Full Stack</h2>
           <h1 style="text-align: center; font-size: 240px; line-height: 240px">JavaScript</h1>
-          <h4 style="text-align: center">Gabriel Dayley &amp;
-            Thomas  A. Valletta</h4>
+          <h4 style="text-align: center">Gabriel Dayley &amp; Thomas  A. Valletta</h4>
       </div>
 
-      <div id="timeline" class="step" data-x="0" data-y="1000"></div>
+      <div id="timeline" class="step skip" data-x="0" data-y="1000"></div>
+			<div id="timeline2" class="step nofade skip " data-x="0" data-y="1000" data-scale=".25"></div>
 
-			<div id="today" class="step" data-x="385" data-y="880" data-rotate-z="-90" data-scale=".25">
+			<div id="today" class="step nofade skip timeline" data-x="385" data-y="880" data-rotate-z="-90" data-scale=".25">
 				Full Stack JavaScript Today
 			</div>
 
-			<div id="HTML5_Start" class="step" data-x="175" data-y="880" data-rotate-z="-90" data-scale=".25">
+			<div id="today-detail" class="step invis small" data-x="425" data-y="880" data-rotate-z="-90" data-scale=".25">
+				Full Stack JavaScript is more than the uprising of underpaid markup monkeys.  It has become increasingly popular because important technologies on three layers of the application stack matured at precisely the right time.
+			</div>
+
+
+			<!-- Client Side Developments -->
+			<div id="html5-start" class="step invis stay timeline" data-x="175" data-y="880" data-rotate-z="-90" data-scale=".25">
 				2004 - WHATWG - Starts HTML5
 			</div>
 
-			<div id="Ajax" class="step" data-x="195" data-y="880" data-rotate-z="-90" data-scale=".25">
+			<div id="ajax" class="step invis stay timeline" data-x="195" data-y="880" data-rotate-z="-90" data-scale=".25">
 				2005 - J.J. Garrett - Ajax
 			</div>
 
-			<div id="Ajax" class="step" data-x="215" data-y="880" data-rotate-z="-90" data-scale=".25">
+			<div id="firebug" class="step invis stay timeline" data-x="215" data-y="880" data-rotate-z="-90" data-scale=".25">
 				2006 - Joe Hewitt - Firebug 1.0
 			</div>
 
-			<div id="HTML5_Draft" class="step" data-x="255" data-y="880" data-rotate-z="-90" data-scale=".25">
+			<div id="html5-draft" class="step invis stay timeline" data-x="255" data-y="880" data-rotate-z="-90" data-scale=".25">
 				2008 - HTML5 First Draft
 			</div>
 
-			<div id="HTML5_Release" class="step" data-x="385" data-y="880" data-rotate-z="-90" data-scale=".25">
+			<div id="html5-release" class="step invis stay small timeline" data-x="375" data-y="880" data-rotate-z="-90" data-scale=".25" style="line-height: 70px">
 				Oct 28, 2014 - HTML5 Initial Release
 			</div>
 
+			<div id="client-summary" class="step invis small" data-x="425" data-y="880" data-rotate-z="-90" data-scale=".25">
+				<h5>On the client...</h5>
+				<ul style="text-align: right">
+					<li>Frameworks</li>
+					<li>Web APIs (HTML5)</li>
+					<li>JavaScript Performance</li>
+					<li>Browser Tooling</li>
+				</ul>
+			</div>
 
-			<div id="beginning" class="step" data-x="-405" data-y="880" data-rotate-z="-90" data-scale=".25">
+
+			<!-- Middleware Developments -->
+			<div id="apache" class="step invis stay timeline" data-x="-5" data-y="880" data-rotate-z="-90" data-scale=".25">
+				1995 - Apache HTTP Server Release
+			</div>
+
+			<div id="apache-big" class="step invis stay timeline" data-x="15" data-y="880" data-rotate-z="-90" data-scale=".25">
+				1996 - Apache Becomes No. 1
+			</div>
+
+			<div id="c10k" class="step invis stay timeline" data-x="75" data-y="880" data-rotate-z="-90" data-scale=".25">
+				1999 - Dan Kegel - C10K Paper
+			</div>
+
+			<div id="nginx" class="step invis stay timeline" data-x="135" data-y="880" data-rotate-z="-90" data-scale=".25">
+				2002 - Igor Sysoev - Starts Nginx
+			</div>
+
+			<div id="nginx-followers" class="step invis stay small" data-x="75" data-y="1100" data-rotate-z="-90" data-scale=".15" style="text-align: right">
+				<h4>Inspired by Nginx</h4>
+				<ul>
+					<li>Netty (Java)</li>
+					<li>Twisted (Python)</li>
+					<li>Event Machine (Ruby)</li>
+				</ul>
+			</div>
+
+			<div id="nginx-follow-fail" class="step invis stay small" data-x="105" data-y="1100" data-rotate-z="-90" data-scale=".15" style="text-align: right">
+				Java, Python, and Ruby were not designed to handle asynchronous programming.
+			</div>
+
+			<div id="nginx-follow-fail2" class="step invis stay small" data-x="125" data-y="1100" data-rotate-z="-90" data-scale=".15" style="text-align: right">
+				Further more they had large communities and millions of lines of code in open source libraries that block.
+			</div>
+
+			<div id="nodejs" class="step invis stay timeline" data-x="275" data-y="880" data-rotate-z="-90" data-scale=".25">
+				2009 - Ryan Dahl - Node.js
+			</div>
+
+			<div id="nodejs-fit" class="step invis stay small" data-x="295" data-y="1100" data-rotate-z="-90" data-scale=".15" style="text-align: right">
+				<h4>JavaScript fit perfectly</h4>
+			</div>
+
+			<div id="nodejs-no-block" class="step invis stay small" data-x="310" data-y="1100" data-rotate-z="-90" data-scale=".15" style="text-align: right">
+				JavaScript had no built-in mechanisms for blocking
+			</div>
+
+			<div id="nodejs-callbacks" class="step invis stay small" data-x="325" data-y="1100" data-rotate-z="-90" data-scale=".15" style="text-align: right">
+				Asynchronous callbacks were how JavaScript natively dealt with anything that executed outside of the current process
+			</div>
+
+			<div id="middleware-summary" class="step invis small" data-x="425" data-y="880" data-rotate-z="-90" data-scale=".25">
+				<h5>On the server...</h5>
+				<ul style="text-align: right">
+					<li>Same language</li>
+					<li>Awesome performance</li>
+					<li>Easy concurrency</li>
+				</ul>
+			</div>
+
+
+			<!-- Database Developments -->
+			<div id="JSON" class="step invis stay timeline" data-x="115" data-y="880" data-rotate-z="-90" data-scale=".25">
+				2001 - Douglas Crockford - JSON
+			</div>
+
+			<div id="beginning" class="step invis stay timeline" data-x="-405" data-y="880" data-rotate-z="-90" data-scale=".25">
 				1975 - Beginning of History
 			</div>
 
-			<div id="efcodd1nf" class="step" data-x="-505" data-y="880" data-rotate-z="-90" data-scale=".25">
+			<div id="efcodd1nf" class="step invis stay timeline skip" data-x="-505" data-y="880" data-rotate-z="-90" data-scale=".25">
 				1970 - E.F. Codd - 1NF Paper
 			</div>
 
-			<div id="grid" class="step" data-x="0" data-y="2000">
+			<div id="efcodd1nf-detail" class="step invis small" data-show="efcodd1nf beginning" data-x="-480" data-y="880" data-rotate-z="-90" data-scale=".25">
+				<br/><br/><br/>
+				Between 1970 and 1972 E.F. Codd published a paper describing how a database schema, or logical organization, could be disconnected from physical information storage.  This became the basis for a dynasty of database theory that would dominate the world for forty years.  We call it the relational database.
+			</div>
+
+			<div id="hadoop" class="step invis stay timeline-l" data-x="195" data-y="1115" data-rotate-z="-90" data-scale=".25">
+				2005 - Yahoo - Hadoop
+			</div>
+
+			<div id="bigtable" class="step invis stay timeline-l" data-x="215" data-y="1115" data-rotate-z="-90" data-scale=".25">
+				2006 - Google - Bigtable
+			</div>
+
+			<div id="dynamo" class="step invis stay timeline-l" data-x="235" data-y="1115" data-rotate-z="-90" data-scale=".25">
+				2007 - Amazon - Dynamo
+			</div>
+
+			<div id="key-value" class="step invis stay x-small" data-x="315" data-y="880" data-rotate-z="-90" data-scale=".25">
+				Distributed datasets preferenced key-value stores
+			</div>
+			<div id="data-structure" class="step invis stay x-small" data-x="325" data-y="880" data-rotate-z="-90" data-scale=".25">
+				JSON was becoming the data structure of the web
+			</div>
+			<div id="map-reduce" class="step invis stay x-small" data-x="335" data-y="880" data-rotate-z="-90" data-scale=".25">
+				JavaScript became the language for map / reduce
+			</div>
+			<div id="databases" class="step invis stay x-small" data-x="345" data-y="880" data-rotate-z="-90" data-scale=".25">
+				eg. Mongo, CouchDB, Riak, Rethink
+			</div>
+
+			<div id="timeline-end" class="step" data-x="0" data-y="1000"></div>
+
+
+
+
+			<!-- Pros and Cons -->
+			<div id="grid" class="step stay" data-x="0" data-y="2000">
           <table>
             <tr id="grid-header">
               <th>Other Pros</th>
               <th>Other Cons</th>
             </tr>
             <tr>
-              <td>Homogeneity</td>
-              <td>Production Readiness</td>
+              <td id="homogeneityC">Homogeneity</td>
+              <td id="readinessC">Production Readiness</td>
             </tr>
             <tr>
-              <td>ORM</td>
-              <td>Speed</td>
+              <td id="ormC">ORM</td>
+              <td id="speedC">Speed</td>
             </tr>
             <tr>
-              <td>Changes Feed</td>
-              <td>Callbacks</td>
+              <td id="feedC">Changes Feed</td>
+              <td id="callbacksC">Callbacks</td>
             </tr>
             <tr>
-              <td>Offline</td>
-              <td>Threading</td>
+              <td id="offlineC">Offline</td>
+              <td id="threadingC">Threading</td>
             </tr>
           </table>
       </div>
-      <div id="global" class="step" data-x="0" data-y="700" data-scale="0.7">
 
-      </div>
+			<div id="homogeneity" data-show="grid" data-highlight="homogeneityC" class="step" data-x="-240" data-y="1950" data-scale=".4"></div>
+			<div id="homogeneity1" data-fade="grid" class="step invis" data-x="-180" data-y="1950" data-z="200" data-rotate-y="75" data-scale=".2">
+				<h4 style="text-align: center">LAMP Stack</h4>
+				<table>
+					<tr id="grid-header">
+						<th>Browser</th>
+						<th>Server Output<br/>Data Structure</th>
+						<th>Server<br/>(Middle Tier)</th>
+						<th>Database Output<br/>Data Structure</th>
+						<th>Database</th>
+					</tr>
+					<tr>
+						<td>HTML</td>
+						<td>HTML</td>
+						<td>PHP</td>
+						<td>Tabular Data</td>
+						<td>SQL (MySQL)</td>
+					</tr>
+					<tr>
+						<td>CSS</td>
+						<td>(JSON)</td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>JavaScript</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			</div>
+			<div id="homogeneity2" data-fade="grid" class="step invis" data-x="-205" data-y="1950" data-z="195" data-rotate-y="75" data-scale=".2">
+				<h4 style="text-align: center">Java Stack</h4>
+				<table>
+					<tr id="grid-header">
+						<th>Browser</th>
+						<th>Server Output<br/>Data Structure</th>
+						<th>Server<br/>(Middle Tier)</th>
+						<th>Database Output<br/>Data Structure</th>
+						<th>Database</th>
+					</tr>
+					<tr>
+						<td>HTML</td>
+						<td>HTML</td>
+						<td>Java</td>
+						<td>Tabular Data</td>
+						<td>SQL (Oracle)</td>
+					</tr>
+					<tr>
+						<td>CSS</td>
+						<td>(JSON)</td>
+						<td></td>
+						<td>(JSON)</td>
+						<td>NoSQL (Mongo)</td>
+					</tr>
+					<tr>
+						<td>JavaScript</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			</div>
+			<div id="homogeneity3" data-fade="grid" class="step invis" data-x="-230" data-y="1950" data-z="190" data-rotate-y="75" data-scale=".2">
+				<h4 style="text-align: center">JavaScript Stack</h4>
+				<table>
+					<tr id="grid-header">
+						<th>Browser</th>
+						<th>Server Output<br/>Data Structure</th>
+						<th>Server<br/>(Middle Tier)</th>
+						<th>Database Output<br/>Data Structure</th>
+						<th>Database</th>
+					</tr>
+					<tr>
+						<td>HTML</td>
+						<td>JSON</td>
+						<td>JavaScript</td>
+						<td>JSON</td>
+						<td>JavaScript (CouchDB)</td>
+					</tr>
+					<tr>
+						<td>CSS</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>JSON (ElasticSearch)</td>
+					</tr>
+					<tr>
+						<td>JavaScript</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			</div>
+
+			<div id="orm" data-show="grid" data-highlight="ormC" class="step small" data-x="-240" data-y="2000" data-scale=".4"></div>
+			<div data-fade="grid" class="step invis small" data-x="-180" data-y="2000" data-z="200" data-rotate-y="75" data-scale=".2">
+				<h4 style="text-align: center">ORM Concerns</h4>
+				<hr noshade/>
+				<ul>
+					<li>1. Domain Object Creation</li>
+					<li>2. Type Mapping</li>
+					<li>3. Query Management</li>
+					<li>4. Query Optimization</li>
+					<li>5. Disconnected vs. Managed Objects</li>
+				</ul>
+			</div>
+			<div data-fade="grid" class="step invis small" data-x="-205" data-y="2000" data-z="195" data-rotate-y="75" data-scale=".2">
+				<h4 style="text-align: center">JSON Document -> JavaScript Concerns</h4>
+				<hr noshade/>
+				<ul>
+					<li>1.</li>
+					<li>2.</li>
+					<li>3.</li>
+					<li>4.</li>
+					<li>5.</li>
+				</ul>
+			</div>
+
+			<div id="feed" data-show="grid" data-highlight="feedC" class="step" data-x="-240" data-y="2050" data-scale=".4"></div>
+			<div data-fade="grid" class="step invis small" data-x="-180" data-y="2050" data-z="200" data-rotate-y="75" data-scale=".2">
+				<h1>Demo</h1>
+			</div>
+
+			<div id="offline" data-show="grid" data-highlight="offlineC" class="step" data-x="-240" data-y="2100" data-scale=".4"></div>
+			<div data-fade="grid" class="step invis small" data-x="-180" data-y="2100" data-z="200" data-rotate-y="75" data-scale=".2">
+				<h4 style="text-align: center">HTML5 Offline Support</h4>
+				<hr noshade/>
+				<ul>
+					<li>Cache Manifest</li>
+					<li>IndexedDB</li>
+					<li>*ServiceWorkers</li>
+				</ul>
+			</div>
+
+
+			<div id="readiness" data-show="grid" data-highlight="readinessC" class="step" data-x="160" data-y="1950" data-scale=".4"></div>
+			<div data-fade="grid" class="step invis small" data-x="180" data-y="1950" data-z="200" data-rotate-y="-75" data-scale=".2">
+				<h4 style="text-align: center">Node.js Traffic Served</h4>
+				<hr noshade/>
+				<ul style="text-align: right">
+					<li>About the same as IBM WebSphere</li>
+					<li>More than Jetty</li>
+					<li>More than Resin</li>
+				</ul>
+			</div>
+			<div data-fade="grid" class="step invis small" data-x="205" data-y="1950" data-z="195" data-rotate-y="-75" data-scale=".2">
+				<h4 style="text-align: center">Tech Companies Using Node.js</h4>
+				<hr noshade/>
+				<ul style="text-align: right">
+					<li>LinkedIn</li>
+					<li>Groupon</li>
+					<li>Yahoo</li>
+					<li>Yellowpages.com</li>
+				</ul>
+			</div>
+			<div data-fade="grid" class="step invis small" data-x="230" data-y="1950" data-z="190" data-rotate-y="-75" data-scale=".2">
+				<h4 style="text-align: center">Traditional Companies Using Node.js</h4>
+				<hr noshade/>
+				<ul style="text-align: right">
+					<li>New York Times</li>
+					<li>Microsoft</li>
+					<li>PayPal</li>
+					<li>Dow Jones</li>
+					<li>Walmart</li>
+				</ul>
+			</div>
+
+			<div id="speed" data-show="grid" data-highlight="speedC" class="step" data-x="160" data-y="2000" data-scale=".4"></div>
+			<div data-fade="grid" class="step invis small" data-x="180" data-y="2000" data-z="200" data-rotate-y="-75" data-scale=".2">
+				<h4 style="text-align: center">PayPal Side-by-side</h4>
+				<hr noshade/>
+				<ul style="text-align: right">
+					<li>Node handled double the requests per second</li>
+					<li>Node had 35% lower page response times</li>
+					<li>Node took half as long to build</li>
+					<li>Node had 33% fewer lines of code</li>
+				</ul>
+			</div>
+			<div data-fade="grid" class="step invis small" data-x="180" data-y="2000" data-z="200" data-rotate-y="-75" data-scale=".2">
+				<h4 style="text-align: center">JavaScript Performance Comaparison</h4>
+				<hr noshade/>
+				<ul style="text-align: right">
+					<li>       C is 3 times faster</li>
+					<li>    Java is 2 times faster</li>
+					<li>   Scala is about the same</li>
+					<li>    Ruby is 7 times slower</li>
+					<li>Python 3 is 8 times slower</li>
+					<li>   Perl is 10 times slower</li>
+					<li>    PHP is 10 times slower</li>
+				</ul>
+			</div>
+
+			<div id="callbacks" data-show="grid" data-highlight="callbacksC" class="step" data-x="160" data-y="2050" data-scale=".4"></div>
+			<div data-fade="grid" class="step invis small" data-x="180" data-y="2050" data-z="200" data-rotate-y="-75" data-scale=".2">
+				<h4 style="text-align: center">Callback Pyramid</h4>
+				<pre>
+					<code class="js">
+$.get(“http://foo.com/user”, function(user) {
+  $.get(“http://foo.com/office/” + user.office, function(office) {
+    $.get(“http://foo.com/tasks/” + office.id, function(tasks) {
+      _.each(tasks, function(task) {
+        console.log(task);
+      });
+    });
+  });
+});
+					</code>
+				</pre>
+			</div>
+			<div data-fade="grid" class="step invis small" data-x="205" data-y="2050" data-z="195" data-rotate-y="-75" data-scale=".2">
+				<h4 style="text-align: center">Callback Pyramid</h4>
+				<pre>
+					<code class="js">
+$.get(“http://foo.com/user”, getOffice);
+
+function getOffice(user) {
+  $.get(“http://foo.com/office/” + user.office, getTasks);
+}
+
+function getTasks(office) {
+  $.get(“http://foo.com/tasks/” + office.id, logTasks);
+}
+
+function logTasks() {
+  _.each(tasks, function(task) {
+    console.log(task);
+  });
+}
+					</code>
+				</pre>
+			</div>
+
+			<div id="threading" data-show="grid" data-highlight="threadingC" class="step" data-x="160" data-y="2100" data-scale=".4"></div>
+			<div data-fade="grid" class="step invis small" data-x="180" data-y="2100" data-z="200" data-rotate-y="-75" data-scale=".2">
+				<h4 style="text-align: center">Node.js Traffic Served</h4>
+				<hr noshade/>
+				<ul style="text-align: right">
+					<li>About the same as IBM WebSphere</li>
+					<li>More than Jetty</li>
+					<li>More than Resin</li>
+				</ul>
+			</div>
+
+
+
       <div id="global-code" class="step invisible" data-x="0" data-y="700" data-z="350" data-rotate-y="75">
           <div class="code-black xx-small">
           &lt;!doctype html&gt;<br/>            
@@ -307,160 +688,150 @@
     </div>
     <script type="text/javascript" src="js/impress.js"></script>
 		<script type='text/javascript' src='js/d3.v3.min.js'></script>
+		<script type='text/javascript' src="js/highlight.pack.js"></script>
 		<script>
       var el = document.getElementById("impress");
-      impress().init();
 
-			(function timeline() {
-				var svg = d3.select('#timeline')
+			function addD3() {
+				var svg = d3.select('#timeline2')
 						.append('svg')
-						.attr('width', 800)
-						.attr('height', 20);
+						.attr('width', 3200)
+						.attr('height', 80)
+						.style('position', 'absolute')
+						.style('left', '-1190px')
+						.style('top', '15px');
 
 				svg.append('line')
-						.attr('x1', 5)
-						.attr('y1', 10)
-						.attr('x2', 795)
-						.attr('y2', 10);
-
-				svg.append('line')
-						.attr('x1', 5)
-						.attr('y1', 5)
-						.attr('x2', 5)
-						.attr('y2', 15);
-
-				svg.append('line')
-						.attr('x1', 795)
-						.attr('y1', 5)
-						.attr('x2', 795)
-						.attr('y2', 15);
+						.attr('x1', 20)
+						.attr('y1', 40)
+						.attr('x2', 3180)
+						.attr('y2', 40);
 
 
+				var svg2 = d3.selectAll('.timeline')
+						.append('svg')
+						.attr('width', 40)
+						.attr('height', 40)
+						.style('position', 'absolute')
+						.style('left', '-65px')
+						.style('top', '55px');
 
-			})();
+				svg2.append('circle')
+						.attr('cx', 20)
+						.attr('cy', 20)
+						.attr('r', 12);
 
 
+				var svg2 = d3.selectAll('.timeline-l')
+						.append('svg')
+						.attr('width', 40)
+						.attr('height', 40)
+						.style('position', 'absolute')
+						.style('left', '875px')
+						.style('top', '55px');
 
-    var grid = document.getElementById("grid");
-    var gridGlobal = document.getElementById("grid-global");
-    var gridMethod = document.getElementById("grid-method");
-    var gridBaseless = document.getElementById("grid-baseless");
-    var gridCall = document.getElementById("grid-call");
-    var gridApply = document.getElementById("grid-apply");
-    var gridConstructor = document.getElementById("grid-constructor");
-    var gridEval = document.getElementById("grid-eval");
+				svg2.append('circle')
+						.attr('cx', 20)
+						.attr('cy', 20)
+						.attr('r', 12);
 
-    var globalCode = document.getElementById("global-code");
-    var methodCode = document.getElementById("method-code");
-    var baselessCode = document.getElementById("baseless-code");
-    var baselessCode2 = document.getElementById("baseless-code2");
-    var baselessCode3 = document.getElementById("baseless-code3");
-    var baselessCode4 = document.getElementById("baseless-code4");
-    var baselessCode5 = document.getElementById("baseless-code5");
-    var callCode = document.getElementById("call-code");
-    var applyCode = document.getElementById("apply-code");
-    var evalCode = document.getElementById("eval-code");
+			}
 
-      el.addEventListener("impress:stepenter", function (event) {
-        switch (event.target.id) {
-          case "title":
-            console.log("title");
-            break; 
-          case "grid":
-            grid.classList.add("active");
-          gridGlobal.className = "clarify";
-          gridMethod.className = "clarify";
-          gridBaseless.className = "clarify";
-          gridCall.className = "clarify";
-          gridApply.className = "clarify";
-          gridConstructor.className = "clarify";
-          gridEval.className = "clarify";
-            break; 
-          case "global":
-            grid.classList.add("active");
-            gridGlobal.className = "clarify";
-            break; 
-          case "global-code":
-            globalCode.classList.remove("invisible");
-            break; 
-          case "method":
-            grid.classList.add("active");
-            gridMethod.className = "clarify";
-            break; 
-          case "method-code":
-            methodCode.classList.remove("invisible");
-            break; 
-          case "baseless":
-            grid.classList.add("active");
-            gridBaseless.className = "clarify";
-            break; 
-          case "baseless-code":
-            baselessCode.classList.remove("invisible");
-            break; 
-          case "baseless-code2":
-            baselessCode2.classList.remove("invisible");
-            break; 
-          case "baseless-code3":
-            baselessCode3.classList.remove("invisible");
-            break; 
-          case "baseless-code4":
-            baselessCode4.classList.remove("invisible");
-            break; 
-          case "baseless-code5":
-            baselessCode5.classList.remove("invisible");
-            break; 
-          case "call":
-            grid.classList.add("active");
-            gridCall.className = "clarify";
-            break; 
-          case "call-code":
-            callCode.classList.remove("invisible");
-            break; 
-          case "apply":
-            grid.classList.add("active");
-            gridApply.className = "clarify";
-            break; 
-          case "apply-code":
-            applyCode.classList.remove("invisible");
-            break; 
-          case "constructor":
-            grid.classList.add("active");
-            gridConstructor.className = "clarify";
-            break; 
-          case "eval":
-            grid.classList.add("active");
-            gridEval.className = "clarify";
-            break; 
-          case "eval-code":
-            evalCode.classList.remove("invisible");
-            break; 
-          default: 
-            console.log("default");
-        }
-        }, false);
+			var hidden = [];
+			var shown = [];
+			var highlighted = [];
+			var faded = [];
 
-      el.addEventListener("impress:stepleave", function (event) {
-      grid.classList.remove("active");
-      gridGlobal.className = "obscure";
-      gridMethod.className = "obscure";
-      gridBaseless.className = "obscure";
-      gridCall.className = "obscure";
-      gridApply.className = "obscure";
-      gridConstructor.className = "obscure";
-      gridEval.className = "obscure";
+      el.addEventListener("impress:stepenter", function(event) {
 
-      globalCode.classList.add("invisible");
-      methodCode.classList.add("invisible");
-      baselessCode.classList.add("invisible");
-      baselessCode2.classList.add("invisible");
-      baselessCode3.classList.add("invisible");
-      baselessCode4.classList.add("invisible");
-      baselessCode5.classList.add("invisible");
-      callCode.classList.add("invisible");
-      applyCode.classList.add("invisible");
-      evalCode.classList.add("invisible");
+				if (event.target.classList.contains('stay')) {
+					event.target.style.opacity = 1;
+				}
 
-        }, false);
+				// --- data-show ---
+				if (event.target.hasAttribute('data-show')) {
+					var showList = event.target.getAttribute('data-show').split(' ');
+					for (var i = 0; i < showList.length; ++i) {
+						var $el = document.getElementById(showList[i]);
+						shown.push({el: $el, opacity: $el.style.opacity});
+						$el.style.opacity = 1;
+					}
+				}
+
+				// --- data-hide ---
+				if (event.target.hasAttribute('data-hide')) {
+					var hideList = event.target.getAttribute('data-hide').split(' ');
+					for (var i = 0; i < hideList.length; ++i) {
+						var $el = document.getElementById(hideList[i]);
+						hidden.push({el: $el, opacity: $el.style.opacity});
+						$el.style.opacity = 0;
+					}
+				}
+
+				// --- data-highlight ---
+				if (event.target.hasAttribute('data-highlight')) {
+					var highlightList = event.target.getAttribute('data-highlight').split(' ');
+					for (var i = 0; i < highlightList.length; ++i) {
+						var $el = document.getElementById(highlightList[i]);
+						highlighted.push($el);
+						$el.style['text-shadow'] = '0 0 5px white, 0 0 10px white, 0 0 30px white';
+					}
+				}
+
+				// --- data-fade ---
+				if (event.target.hasAttribute('data-fade')) {
+					var fadeList = event.target.getAttribute('data-fade').split(' ');
+					for (var i = 0; i < fadeList.length; ++i) {
+						var $el = document.getElementById(fadeList[i]);
+						faded.push({el: $el, opacity: $el.style.opacity});
+						$el.style.opacity = 0.2;
+					}
+				}
+
+			}, false);
+
+      el.addEventListener("impress:stepleave", function(event) {
+
+				// --- data-show ---
+				if (hidden.length) {
+					for (var i = 0; i < shown.length; ++i) {
+						shown[i].el.style.opacity = shown[i].opacity;
+					}
+					shown = [];
+				}
+
+				// --- data-hide ---
+				if (hidden.length) {
+					for (var i = 0; i < hidden.length; ++i) {
+						hidden[i].el.style.opacity = hidden[i].opacity;
+					}
+					hidden = [];
+				}
+
+				// --- data-highlighted ---
+				if (highlighted.length) {
+					for (var i = 0; i < highlighted.length; ++i) {
+						highlighted[i].style['text-shadow'] = 'none';
+					}
+					highlighted = [];
+				}
+
+				// --- data-faded ---
+				if (faded.length) {
+					for (var i = 0; i < faded.length; ++i) {
+						faded[i].el.style.opacity = faded[i].opacity;
+					}
+					faded = [];
+				}
+
+			}, false);
+
+			document.addEventListener("impress:init", function(event) {
+				addD3();
+			});
+
+			impress().init();
+			hljs.initHighlighting();
 
     </script>
     </body>

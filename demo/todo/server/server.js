@@ -9,18 +9,6 @@ var todoService = new TodoService();
 
 server.listen(3000);
 
-io.on('connection', function (socket) {
-  socket.emit('hello');
-
-  todoService.on('doc-updated', function(doc) {
-    socket.emit('updated', doc);
-  });
-
-  todoService.on('doc-deleted', function(doc) {
-    socket.emit('deleted', doc);
-  });
-});
-
 app.use(express.static('../client'));
 app.use(bodyParser.json());
 
@@ -61,11 +49,25 @@ app.put('/todo/:id', function (req, res) {
 
 // DELETE
 app.delete('/todo/:id', function (req, res) {
-  todoService.delete(req.params.id)
+  todoService.remove(req.params.id)
     .then(function() {
       res.status(204).send();
     })
     .catch(function(err) {
       res.status(500).send(err);
     })
+});
+
+
+// socket.io config
+io.on('connection', function (socket) {
+  socket.emit('hello');
+
+  todoService.on('doc-updated', function(doc) {
+    socket.emit('updated', doc);
+  });
+
+  todoService.on('doc-deleted', function(doc) {
+    socket.emit('deleted', doc);
+  });
 });

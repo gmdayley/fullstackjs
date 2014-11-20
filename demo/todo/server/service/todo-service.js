@@ -65,7 +65,7 @@ TodoService.prototype.save = function(doc) {
   })
 };
 
-TodoService.prototype.delete = function(docId) {
+TodoService.prototype.remove = function(docId) {
   var _this = this;
   return this.findById(docId)
     .then(function(doc) {

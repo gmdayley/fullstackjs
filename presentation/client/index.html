@@ -31,6 +31,17 @@
 
           }
 
+          @font-face {
+            font-family: 'Typewriter';
+            src: url('css/font/Typewriter/veteran_typewriter-webfont.eot');
+            src: url('css/font/Typewriter/veteran_typewriter-webfont.eot?#iefix') format('embedded-opentype'),
+            url('css/font/Typewriter/veteran_typewriter-webfont.woff') format('woff'),
+            url('css/font/Typewriter/veteran_typewriter-webfont.ttf') format('truetype'),
+            url('css/font/Typewriter/veteran_typewriter-webfont.svg#QlassikBoldRegular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+          }
+
           .step.nofade {
             opacity: 1;
           }
@@ -153,6 +164,27 @@
             padding-right: 100px;
             text-align: right;
           }
+
+          .paper {
+            width: 640px;
+            font-family: Typewriter;
+            font-size: 18px;
+            float: right;
+            padding: 37px;
+            background-color: antiquewhite;
+            box-shadow: 11px 11px 18px 6px rgba(0, 0, 0, .2);
+          }
+
+          .img-circular {
+            float: right;
+            border: 10px solid black;
+            width: 150px;
+            height: 150px;
+            background-image: url('');
+            background-size: cover;
+            display: block;
+            border-radius:50%;
+          }
         </style>
       <script type='text/javascript' src="js/prism.js"></script>
     </head>
@@ -180,16 +212,24 @@
 
 
       <!-- Client Side Developments -->
-      <div id="js" class="step invis stay timeline client" data-x="-5" data-y="880" data-rotate-z="-90" data-scale=".25">
+      <div id="js" class="step invis stay timeline client" data-show="js-img" data-x="-5" data-y="880" data-rotate-z="-90" data-scale=".25">
         1995 - Brendan Eich - JavaScript
+      </div>
+
+      <div id="js-img" class="step skip invis stay" data-x="-5" data-y="880" data-rotate-z="-90" data-scale=".25">
+        <img src="img/brendan_eich_150.png" class="img-circular">
       </div>
 
       <div id="html5-start" class="step invis stay timeline client" data-x="175" data-y="880" data-rotate-z="-90" data-scale=".25">
         2004 - WHATWG - Starts HTML5
       </div>
 
-      <div id="ajax" class="step invis stay timeline client" data-x="195" data-y="880" data-rotate-z="-90" data-scale=".25">
+      <div id="ajax" class="step invis stay timeline client" data-show="ajax-img" data-x="195" data-y="880" data-rotate-z="-90" data-scale=".25">
         2005 - J.J. Garrett - Ajax
+      </div>
+
+      <div id="ajax-img" class="step skip invis stay" data-x="195" data-y="880" data-rotate-z="-90" data-scale=".25">
+        <img src="img/jesse_james_garrett_150.png" class="img-circular"/>
       </div>
 
       <div id="firebug" class="step invis stay timeline client" data-x="215" data-y="880" data-rotate-z="-90" data-scale=".25">
@@ -224,12 +264,34 @@
         1996 - Apache Becomes No. 1
       </div>
 
-      <div id="c10k" class="step invis stay timeline server" data-x="75" data-y="880" data-rotate-z="-90" data-scale=".25">
+      <div id="c10k" class="step invis stay timeline server" data-show="c10k-img" data-x="75" data-y="880" data-rotate-z="-90" data-scale=".25">
         1999 - Dan Kegel - C10K Paper
       </div>
 
-      <div id="nginx" class="step invis stay timeline server" data-x="135" data-y="880" data-rotate-z="-90" data-scale=".25">
+      <div id="c10k-img" class="step skip invis stay" data-x="75" data-y="880" data-rotate-z="-90" data-scale=".25">
+        <img src="img/dan_kegel_150.png" class="img-circular">
+      </div>
+
+      <div id="c10k-data1" class="step invis" data-x="75" data-y="880" data-z="85" data-rotate-z="-90" data-rotate-x="-85" data-scale=".25">
+        <div class="paper" >
+          <h3>The C10K problem</h3>
+          <br/>
+          <p>It's time for web servers to handle ten thousand clients simultaneously, don't you think? After all, the web is a big place now.</p>
+          <br/>
+          <p>And computers are big, too. You can buy a 1000MHz machine with 2 gigabytes of RAM and an 1000Mbit/sec Ethernet card for $1200 or so. Let's see - at 20000 clients, that's 50KHz, 100Kbytes, and 50Kbits/sec per client. It shouldn't take any more horsepower than that to take four kilobytes from the disk and send them to the network once a second for each of twenty thousand clients. (That works out to $0.08 per client, by the way. Those $100/client licensing fees some operating systems charge are starting to look a little heavy!) So hardware is no longer the bottleneck.</p>
+          <br />
+          <p>In 1999 one of the busiest ftp sites, cdrom.com, actually handled 10000 clients simultaneously through a Gigabit Ethernet pipe. As of 2001, that same speed is now being offered by several ISPs, who expect it to become increasingly popular with large business customers.</p>
+          <br />
+          <p>...</p>
+        </div>
+      </div>
+
+      <div id="nginx" class="step invis stay timeline server" data-show="nginx-img" data-x="135" data-y="880" data-rotate-z="-90" data-scale=".25">
         2002 - Igor Sysoev - Starts Nginx
+      </div>
+
+      <div id="nginx-img" class="step skip invis stay" data-x="135" data-y="880" data-rotate-z="-90" data-scale=".25">
+        <img src="img/Igor_Sysoev_ngnix_150.png" class="img-circular">
       </div>
 
       <div id="nginx-followers" class="step invis stay small" data-x="75" data-y="1090" data-rotate-z="-90" data-scale=".15" style="text-align: right">
@@ -249,8 +311,12 @@
         Further more they had large communities and millions of lines of code in open source libraries that block.
       </div>
 
-      <div id="nodejs" class="step invis stay timeline server" data-x="275" data-y="880" data-rotate-z="-90" data-scale=".25">
+      <div id="nodejs" class="step invis stay timeline server" data-show="nodejs-img" data-x="275" data-y="880" data-rotate-z="-90" data-scale=".25">
         2009 - Ryan Dahl - Node.js
+      </div>
+
+      <div id="nodejs-img" class="step skip invis stay" data-x="275" data-y="880" data-rotate-z="-90" data-scale=".25">
+        <img src="img/ryan_dahl_joyent_150.png" class="img-circular">
       </div>
 
       <div id="nodejs-fit" class="step invis stay small" data-x="295" data-y="1090" data-rotate-z="-90" data-scale=".15" style="text-align: right">
@@ -276,8 +342,12 @@
 
 
       <!-- Database Developments -->
-      <div id="JSON" class="step invis stay timeline database" data-x="115" data-y="880" data-rotate-z="-90" data-scale=".25">
+      <div id="JSON" class="step invis stay timeline database" data-show="JSON-img" data-x="115" data-y="880" data-rotate-z="-90" data-scale=".25">
         2001 - Douglas Crockford - JSON
+      </div>
+
+      <div id="JSON-img" class="step skip invis stay" data-x="115" data-y="865" data-rotate-z="-90" data-scale=".25">
+        <img src="img/douglas_crockford_150.png" class="img-circular"/>
       </div>
 
       <div id="beginning" class="step invis stay timeline database" data-x="-405" data-y="880" data-rotate-z="-90" data-scale=".25">
@@ -288,7 +358,11 @@
         1970 - E.F. Codd - 1NF Paper
       </div>
 
-      <div id="efcodd1nf-detail" class="step invis small" data-show="efcodd1nf beginning" data-x="-480" data-y="880" data-rotate-z="-90" data-scale=".25">
+      <div id="efcodd1nf-img" class="step skip invis stay" data-x="-505" data-y="880" data-rotate-z="-90" data-scale=".25">
+        <img src="img/efcodd_150.png" class="img-circular"/>
+      </div>
+
+      <div id="efcodd1nf-detail" class="step invis small" data-show="efcodd1nf-img efcodd1nf beginning" data-x="-480" data-y="880" data-rotate-z="-90" data-scale=".25">
         <br/><br/><br/>
         Between 1970 and 1972 E.F. Codd published a paper describing how a database schema, or logical organization, could be disconnected from physical information storage.  This became the basis for a dynasty of database theory that would dominate the world for forty years.  We call it the relational database.
       </div>
